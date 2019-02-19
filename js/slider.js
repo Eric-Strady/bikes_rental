@@ -22,6 +22,7 @@ $(function() {
 			slider.backwardEvent();
 			slider.forwardEvent();
 			slider.markerEvent();
+			slider.keyboardEvent();
 		},
 
 
@@ -140,6 +141,19 @@ $(function() {
 				e.preventDefault();
 				slider.indexUp();
 				slider.slidingRight();
+			});
+		},
+
+		keyboardEvent() {
+			$('body').keydown(function(e) {
+				if (e.which === 37) {
+					slider.indexDown();
+					slider.slidingLeft();
+				}
+				else if (e.which === 39) {
+					slider.indexUp();
+					slider.slidingRight();
+				}
 			});
 		}
 	};

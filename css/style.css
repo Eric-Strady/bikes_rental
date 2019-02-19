@@ -1,0 +1,62 @@
+/* HEADER */
+
+header {
+	height: 100vh;
+	position: relative;
+	background-image: url('../images/bg_header.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+header .container {
+	height: 100%;
+}
+
+#slider {
+	height: 100%;
+}
+
+#slider img {
+	height: 50vh;
+}
+
+#backward span, #forward span {
+	color: #9600B2;
+}
+
+#slider-marker a {
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	border-radius: 50%;
+}
+
+#backward span:hover, #forward span:hover {
+	color: #D600FF;
+}
+
+#slider-marker a:hover {
+	background-color: #D600FF!important;
+	border: 3px solid #D600FF!important;
+}
+
+/* BIKES RENTAL */
+
+#bikes_rental {
+	background-color: blue;
+}
+
+#mapid {
+	height: 300px;
+}
+
+#rental_form {
+	background-color: yellow;
+}
+
+/* RENTAL STATUS */
+
+#rental_status {
+	background-color: purple;
+}

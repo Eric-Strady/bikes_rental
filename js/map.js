@@ -6,12 +6,13 @@ $(function() {
 			this.latitude = lat;
 			this.longitude = lng;
 			this.map = '';
+			this.dataFromJCDecaux = 'https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=3e1f17ee3d8f0b4e911b05f690af84c74891c3fc';
 		}
 
 		generateMap() {
 			this.map = L.map(this.id).setView([this.latitude, this.longitude], 13);
 			this.getLayer();
-			this.getStaticData();
+			this.getApiData();
 			return this.map;
 		}
 
@@ -22,21 +23,21 @@ $(function() {
 			}).addTo(this.map);
 		}
 
-		getStaticData() {
-			ajaxGet('http://127.0.0.1/js_project/json/Nantes.json', function(response) {
-				let staticData = JSON.parse(response);
-				let dataLat;
-				let dataLng;
-				staticData.forEach(data => {
-					dataLat = data.latitude;
-					dataLng = data.longitude;
-					map.generateMarkers(dataLat, dataLng);
+		getApiData() {
+			ajaxGet(this.dataFromJCDecaux, function(response) {
+				let stations = JSON.parse(response);
+				let stationLat;
+				let stationLng;
+				stations.forEach(station => {
+					stationLat = station.position.lat;
+					stationLng = station.position.lng;
+					map.generateMarkers(stationLat, stationLng);
 				});
 			});
 		}
 
-		generateMarkers(dataLat, dataLng) {
-			let marker = L.marker([dataLat, dataLng]).addTo(this.map);
+		generateMarkers(stationLat, stationLng) {
+			let marker = L.marker([stationLat, stationLng]).addTo(this.map);
 		}
 	}
 

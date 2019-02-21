@@ -44,7 +44,6 @@ header .container {
 /* BIKES RENTAL */
 
 #bikes_rental {
-	background-color: blue;
 }
 
 #mapid {
@@ -52,7 +51,7 @@ header .container {
 }
 
 #rental_form {
-	background-color: yellow;
+	min-height: 100%;
 }
 
 /* RENTAL STATUS */

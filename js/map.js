@@ -26,18 +26,29 @@ $(function() {
 		getApiData() {
 			ajaxGet(this.dataFromJCDecaux, function(response) {
 				let stations = JSON.parse(response);
-				let stationLat;
-				let stationLng;
-				stations.forEach(station => {
-					stationLat = station.position.lat;
-					stationLng = station.position.lng;
-					map.generateMarkers(stationLat, stationLng);
-				});
+				console.log(stations);
+				map.generateMarkers(stations);
 			});
 		}
 
-		generateMarkers(stationLat, stationLng) {
-			let marker = L.marker([stationLat, stationLng]).addTo(this.map);
+		generateMarkers(stations) {
+			stations.forEach(station => {
+				let stationLat = station.position.lat;
+				let stationLng = station.position.lng;
+				let stationAdr = station.address;
+				let stationBikeStands = station.available_bike_stands;
+				let stationAvailableBikes = station.available_bikes;
+
+				let marker = L.marker([stationLat, stationLng])
+					.addTo(this.map)
+					.on('click', addData);
+
+				function addData() {
+					$('#address span').text(stationAdr);
+					$('#bikeStands span').text(stationBikeStands);
+					$('#availableBikes span').text(stationAvailableBikes);
+				}
+			});
 		}
 	}
 

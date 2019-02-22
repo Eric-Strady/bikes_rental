@@ -44,6 +44,8 @@ $(function() {
 					.on('click', addData);
 
 				function addData() {
+					$('#help').hide();
+					$('#rental_form').fadeIn(1000);
 					$('#address span').text(stationAdr);
 					$('#bikeStands span').text(stationBikeStands);
 					$('#availableBikes span').text(stationAvailableBikes);
@@ -51,6 +53,8 @@ $(function() {
 			});
 		}
 	}
+
+	$('#rental_form').hide();
 
 	const map = new Map('mapid', 47.217894, -1.552875);
 	map.generateMap();

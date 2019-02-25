@@ -3,8 +3,8 @@ class Map {
 		this.id = id;
 		this.latitude = lat;
 		this.longitude = lng;
-		this.map = '';
-		this.stations = '';
+		this.map;
+		this.stations;
 	}
 
 	init() {

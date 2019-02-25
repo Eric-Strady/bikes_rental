@@ -47,11 +47,15 @@ header .container {
 }
 
 #mapid {
-	height: 400px;
+	height: 500px;
 }
 
 #rental_form {
 	min-height: 100%;
+}
+
+canvas {
+	border: 2px solid black;
 }
 
 /* RENTAL STATUS */

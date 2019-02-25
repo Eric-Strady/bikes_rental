@@ -3,6 +3,7 @@ $(function() {
 		constructor() {
 			this.initSlider();
 			this.initMap();
+			this.initCanvas();
 		}
 
 		initSlider() {
@@ -82,6 +83,56 @@ $(function() {
 					map.generateMarkers(map.stations);
 				});
 			}
+		}
+
+		initCanvas() {
+			let width = $('#signatureCanvas').attr('width'),
+				height = $('#signatureCanvas').attr('height'),
+				color = '#64D017',
+				lineThickness = 3,
+				topLeftMessage = 'Votre signature:';
+
+			$('#signatureCanvas, #signatureButtons').hide();
+
+			const canvas = new Canvas(width, height, color, lineThickness, topLeftMessage);
+
+			$('#submitButton input').click(function(e) {
+				e.preventDefault();
+				$('#submitButton').hide();
+				$('#signatureCanvas, #signatureButtons').fadeIn(1000);
+				$('#signatureButtons button').attr('disabled', 'true');
+				canvas.ctx = document.getElementById('signatureCanvas').getContext("2d");
+
+				canvas.init();
+			});
+
+			$('#signatureCanvas').mousedown(function(e) {
+				let mousePosition = canvas.getMousePosition(e);
+				canvas.setStartPosition(mousePosition.x, mousePosition.y);
+			});
+
+			$('#signatureCanvas').mousemove(function(e) {
+				if (canvas.mouseDown) {
+          			$('#signatureButtons button').removeAttr('disabled');
+					let mousePosition = canvas.getMousePosition(e);
+
+					canvas.draw(mousePosition.x, mousePosition.y);
+				}
+			});
+
+			$('#signatureCanvas').mouseup(function() {
+				canvas.mouseDown = false;
+			});
+
+			$('#signatureCanvas').mouseleave(function() {
+				canvas.mouseDown = false;
+			});
+
+			$('#resetButton').click(function(e) {
+				e.preventDefault();
+				canvas.reset();
+				$('#signatureButtons button').attr('disabled', 'true');
+			});
 		}
 	}
 	

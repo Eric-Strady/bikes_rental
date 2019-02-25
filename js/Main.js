@@ -17,7 +17,7 @@ $(function() {
 
 			$('#slides').hover(
 				function() {
-					stopSliding();
+					slider.stopSliding();
 				},
 				function() {
 					slider.markerSelected();
@@ -46,26 +46,15 @@ $(function() {
 
 			$('#slider-marker a').click(function(e) {
 				e.preventDefault();
-				stopSliding();
-				slider.currentSlide = slider.index;
-				slider.index = $(this).attr('id');
-				slider.showSlide();
-				slider.currentSlide = slider.index -1;
+				let markerId = $(this).attr('id');
+				slider.markerEvent(markerId);
 				startSliding();
 			});
 
 			function startSliding() {
-				slider.auto = setInterval(function(){
+				slider.auto = setInterval(function() {
 					slider.autoSlide();
 				}, 5000);
-			}
-
-			function stopSliding() {
-				clearInterval(slider.auto);
-				$('#slider-marker a').css({
-					'background-color': '#BEBEBE',
-					'border': '3px solid #BEBEBE'
-				});
 			}
 		}
 

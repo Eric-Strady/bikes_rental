@@ -22,11 +22,11 @@ class Map {
 
 	generateMarkers(stations) {
 		stations.forEach(station => {
-			let stationLat = station.position.lat;
-			let stationLng = station.position.lng;
-			let stationAdr = station.address;
-			let stationBikeStands = station.available_bike_stands;
-			let stationAvailableBikes = station.available_bikes;
+			let stationLat = station.position.lat,
+				stationLng = station.position.lng,
+				stationAdr = station.address,
+				stationBikeStands = station.available_bike_stands,
+				stationAvailableBikes = station.available_bikes;
 
 			let marker = L.marker([stationLat, stationLng])
 				.addTo(this.map)

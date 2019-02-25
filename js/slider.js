@@ -68,6 +68,14 @@ class Slider {
 		this.showSlide();
 	}
 
+	stopSliding() {
+		clearInterval(this.auto);
+		this.markers.css({
+			'background-color': '#BEBEBE',
+			'border': '3px solid #BEBEBE'
+		});
+	}
+
 	markerSelected() {
 		let markers = this.markers;
 		let markerSelected = markers[this.index];
@@ -81,6 +89,14 @@ class Slider {
 			'background-color': '#D600FF',
 			'border': '3px solid #D600FF'
 		});
+	}
+
+	markerEvent(markerId) {
+		this.stopSliding();
+		this.currentSlide = this.index;
+		this.index = markerId;
+		this.showSlide();
+		this.currentSlide = this.index -1;
 	}
 }
 

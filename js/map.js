@@ -24,7 +24,9 @@ class Map {
 		stations.forEach(station => {
 			let stationLat = station.position.lat,
 				stationLng = station.position.lng,
-				stationAdr = station.address,
+				stationStatus = stations.status,
+				stationNumber = station.number,
+				stationAddr = station.address,
 				stationBikeStands = station.available_bike_stands,
 				stationAvailableBikes = station.available_bikes;
 
@@ -35,9 +37,10 @@ class Map {
 			function addData() {
 				$('#help').hide();
 				$('#rental_form').fadeIn(1000);
-				$('#address span').text(stationAdr);
+				$('#address span').text(stationAddr);
 				$('#bikeStands span').text(stationBikeStands);
 				$('#availableBikes span').text(stationAvailableBikes);
+				$('#stationNumber').attr('value', stationNumber);
 			}
 		});
 	}

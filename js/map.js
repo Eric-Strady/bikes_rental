@@ -1,17 +1,28 @@
 class Map {
-	constructor(id, lat, lng) {
+	constructor(id, lat, lng, urlApi) {
 		this.id = id;
 		this.latitude = lat;
 		this.longitude = lng;
+		this.urlApi = urlApi;
 		this.map;
 		this.stations;
 		this.init();
+		this.getApiData();
 	}
 
 	init() {
 		this.map = L.map(this.id).setView([this.latitude, this.longitude], 13);
 		this.getLayer();
 		return this.map;
+	}
+
+	getApiData() {
+		let self = this;
+		ajaxGet(self.urlApi, function(response) {
+			self.stations = JSON.parse(response);
+			console.log(self.stations);
+			self.generateMarkers();
+		});
 	}
 
 	getLayer() {
@@ -21,11 +32,11 @@ class Map {
 		}).addTo(this.map);
 	}
 
-	generateMarkers(stations) {
-		stations.forEach(station => {
+	generateMarkers() {
+		this.stations.forEach(station => {
 			let stationLat = station.position.lat,
 				stationLng = station.position.lng,
-				stationStatus = stations.status,
+				stationStatus = station.status,
 				stationNumber = station.number,
 				stationAddr = station.address,
 				stationBikeStands = station.available_bike_stands,

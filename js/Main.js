@@ -54,18 +54,9 @@ $(function() {
 
 		initMap() {
 			$('#rental_form').hide();
-			let dataFromJCDecaux = 'https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=3e1f17ee3d8f0b4e911b05f690af84c74891c3fc';
+			let urlApi = 'https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=3e1f17ee3d8f0b4e911b05f690af84c74891c3fc';
 
-			const map = new Map('mapid', 47.217894, -1.552875);
-			getApiData(dataFromJCDecaux);
-
-			function getApiData(url) {
-				ajaxGet(url, function(response) {
-					map.stations = JSON.parse(response);
-					console.log(map.stations);
-					map.generateMarkers(map.stations);
-				});
-			}
+			const map = new Map('mapid', 47.217894, -1.552875, urlApi);
 		}
 
 		initCanvas() {
@@ -133,12 +124,8 @@ $(function() {
 				$('#signature').hide();
 				$('#submitButton, #successMessage, #booking_status').show();
 
-				const booking = new Booking(bookingData);
+				const booking = new Booking(bookingData, '#bookingSummary');
 				const timer = new Timer(20, 0, '#booking_status', '#timer span');
-
-				booking.saveBooking();
-				booking.displayBookingSummary('#bookingSummary');
-				timer.startTimer();
 			});
 		}
 	}

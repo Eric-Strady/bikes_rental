@@ -1,14 +1,13 @@
 class Booking {
-	constructor(bookingObj) {
+	constructor(bookingObj, bookingSummaryId) {
 		this.booking = bookingObj;
+		this.bookingSummaryId = bookingSummaryId;
 		this.stationNumber = bookingObj.stationNumber;
 		this.lastName = bookingObj.lastName;
 		this.firstName = bookingObj.firstName;
-	}
-
-	saveBooking() {
 		this.saveToLocalStorage();
 		this.saveToSessionStorage();
+		this.displayBookingSummary();
 	}
 
 	saveToLocalStorage() {
@@ -22,8 +21,8 @@ class Booking {
 		sessionStorage.setItem("stationNumber", this.stationNumber);
 	}
 
-	displayBookingSummary(bookingSummaryId) {
+	displayBookingSummary() {
 		let bookingSummary = `Réservation d'un vélo situé "${this.booking.stationAddress}" au nom de ${this.firstName} ${this.lastName}.`;
-		$(bookingSummaryId).append(bookingSummary);
+		$(this.bookingSummaryId).text(bookingSummary);
 	}
 }

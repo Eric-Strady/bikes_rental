@@ -12,7 +12,9 @@ class Timer {
 
 	init() {
 		this.getTimer();
+		this.stopTimer();
 		this.firstCall = true;
+		this.startTimer();
 	}
 
 	minusOneMinute() {
@@ -46,8 +48,11 @@ class Timer {
 	}
 
 	stopTimer() {
+		if (this.firstCall !== false) {
+			clearInterval(this.auto);
+			$(this.blockId).hide();
+		}
 		clearInterval(this.auto);
-		$(this.blockId).hide();
 	}
 
 	transformTimerInString() {

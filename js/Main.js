@@ -81,17 +81,16 @@ $(function() {
 				lineThickness = 3,
 				topLeftMessage = 'Votre signature:';
 
-			$('#signatureCanvas, #signatureButtons').hide();
+			$('#signature').hide();
 
 			const canvas = new Canvas(width, height, color, lineThickness, topLeftMessage);
 
 			$('#submitButton input').click(function(e) {
 				if ($('#lastName').val() !== '' && $('#firstName').val() !== '') {
 					e.preventDefault();
-					
+
 					$('#submitButton').hide();
-					$('#signatureCanvas, #signatureButtons').fadeIn(1000);
-					$('#signatureButtons button').attr('disabled', 'true');
+					$('#signature').fadeIn(800);
 					canvas.ctx = document.getElementById('signatureCanvas').getContext("2d");
 
 					canvas.init();
@@ -105,7 +104,7 @@ $(function() {
 
 			$('#signatureCanvas').mousemove(function(e) {
 				if (canvas.mouseDown) {
-          			$('#signatureButtons button').removeAttr('disabled');
+          			$('.signatureButtons').removeAttr('disabled');
 					let mousePosition = canvas.getMousePosition(e);
 
 					canvas.draw(mousePosition.x, mousePosition.y);
@@ -123,7 +122,7 @@ $(function() {
 			$('#resetButton').click(function(e) {
 				e.preventDefault();
 				canvas.reset();
-				$('#signatureButtons button').attr('disabled', 'true');
+				$('.signatureButtons').attr('disabled', 'true');
 			});
 		}
 	}

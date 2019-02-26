@@ -23,7 +23,7 @@ class Timer {
 
 	minusOneSecond() {
 		this.seconds--;
-		if (this.seconds < 0) {
+		if (this.seconds === 0) {
 			this.seconds = this.fullSeconds;
 			this.minusOneMinute();
 		}

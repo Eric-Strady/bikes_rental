@@ -37,6 +37,13 @@ class Timer {
 		this.transformTimerInString();
 	}
 
+	startTimer() {
+		let self = this;
+		self.auto = setInterval(function() {
+			self.getTimer();
+		}, 1000);
+	}
+
 	stopTimer() {
 		clearInterval(this.auto);
 		$(this.blockId).hide();

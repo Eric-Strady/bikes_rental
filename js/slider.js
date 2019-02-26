@@ -68,6 +68,13 @@ class Slider {
 		this.showSlide();
 	}
 
+	startSliding() {
+		let self = this;
+		self.auto = setInterval(function() {
+			self.autoSlide();
+		}, 5000);
+	}
+
 	stopSliding() {
 		clearInterval(this.auto);
 		this.markers.css({

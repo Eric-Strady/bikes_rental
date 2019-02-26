@@ -14,7 +14,7 @@ $(function() {
 
 			const slider = new Slider(slides, slideId, markersBlockId);
 			slider.init()
-			startSliding();
+			slider.startSliding();
 
 			$('#slides').hover(
 				function() {
@@ -22,7 +22,7 @@ $(function() {
 				},
 				function() {
 					slider.markerSelected();
-					startSliding();
+					slider.startSliding();
 				}
 			);
 
@@ -49,14 +49,8 @@ $(function() {
 				e.preventDefault();
 				let markerId = $(this).attr('id');
 				slider.markerEvent(markerId);
-				startSliding();
+				slider.startSliding();
 			});
-
-			function startSliding() {
-				slider.auto = setInterval(function() {
-					slider.autoSlide();
-				}, 5000);
-			}
 		}
 
 		initMap() {
@@ -148,13 +142,7 @@ $(function() {
 				booking.saveBooking();
 				booking.displayBookingSummary('#bookingSummary');
 				timer.init();
-				startTimer();
-
-				function startTimer() {
-					timer.auto = setInterval(function() {
-						timer.getTimer();
-					}, 1000);
-				}
+				timer.startTimer();
 			});
 		}
 	}

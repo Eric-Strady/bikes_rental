@@ -4,6 +4,7 @@ $(function() {
 			this.initSlider();
 			this.initMap();
 			this.initCanvas();
+			this.initBooking();
 		}
 
 		initSlider() {
@@ -67,8 +68,9 @@ $(function() {
 			getApiData(dataFromJCDecaux);
 
 			function getApiData(url) {
-				let stations = ajaxGet(url, function(response) {
+				ajaxGet(url, function(response) {
 					map.stations = JSON.parse(response);
+					console.log(map.stations);
 					map.generateMarkers(map.stations);
 				});
 			}

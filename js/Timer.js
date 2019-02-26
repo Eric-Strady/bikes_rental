@@ -7,9 +7,25 @@ class Timer {
 		this.timerId = timerId;
 		this.firstCall = false;
 		this.auto = '';
-		this.stopTimer();
 		this.getTimer();
+	}
+
+	saveTimer() {
+		this.getSessionsStorageTimer();
+		this.firstCall = true;
 		this.startTimer();
+		let timer = JSON.stringify(this);
+		sessionStorage.removeItem("timer");
+		sessionStorage.setItem("timer", timer);
+	}
+
+	getSessionsStorageTimer() {
+		let storageTimer = sessionStorage.getItem("timer");
+		let timerObject = JSON.parse(storageTimer);
+		console.log(timerObject);
+		if (timerObject !== null) {
+			this.stopTimerStorage(timerObject);
+		}
 	}
 
 	minusOneMinute() {
@@ -31,9 +47,10 @@ class Timer {
 		if (this.firstCall !== false) {
 			this.minusOneSecond();
 			this.transformTimerInString();
+		} else {
+			this.transformTimerInString();
+			this.saveTimer();
 		}
-		this.transformTimerInString();
-		this.firstCall = true;
 	}
 
 	startTimer() {
@@ -48,7 +65,10 @@ class Timer {
 			clearInterval(this.auto);
 			$(this.blockId).hide();
 		}
-		clearInterval(this.auto);
+	}
+
+	stopTimerStorage(object) {
+		clearInterval(object.auto);
 	}
 
 	transformTimerInString() {

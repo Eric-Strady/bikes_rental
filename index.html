@@ -141,13 +141,21 @@
 												<div class="row justify-content-center" id="submitButton">
 													<input class="btn btn-primary" type="submit" value="Réserver"/>
 												</div>
-												<div class="row text-center" id="signature">
-													<div class="col">
-														<canvas id="signatureCanvas" width="300" height="200"></canvas>
-													<div class="col">
-														<button class="btn btn-primary signatureButtons" id="resetButton" disabled="true">Effacer</button>
-														<button class="btn btn-primary signatureButtons" id="validationButton" disabled="true">Valider ma réservation</button>
+												<div id="signature">
+													<div class="row text-center">
+														<div class="col">
+															<canvas id="signatureCanvas" width="300" height="200"></canvas>
+														</div>
 													</div>
+													<div class="row text-center">
+														<div class="col">
+															<button class="btn btn-primary signatureButtons" id="resetButton" disabled="true">Effacer</button>
+															<button class="btn btn-primary signatureButtons" id="validationButton" disabled="true">Valider ma réservation</button>
+														</div>
+													</div>
+												</div>
+												<div class="alert alert-success text-center mt-5" role="alert" id="successMessage">
+													<a href="#booking_status" class="alert-link anchor">Votre réservation</a> a bien été prise en compte. Si vous le souhaitez, vous pouvez effectuer une nouvelle réservation.
 												</div>
 											</div>
 										</div>
@@ -160,11 +168,12 @@
 			</div>
 		</section>
 
-		<section id="rental_status">
+		<section id="booking_status">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 text-center">
-						<p>test status</p>
+					<div class="col-lg-12 text-center mt-5 mb-5">
+						<p id="booking"></p>
+						<p id="timer">Expiration de votre réservation dans: <span></span></p>
 					</div>
 				</div>
 			</div>

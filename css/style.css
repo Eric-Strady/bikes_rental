@@ -58,8 +58,11 @@ canvas {
 	border: 2px solid black;
 }
 
-/* RENTAL STATUS */
+/* BOOKING STATUS */
 
-#rental_status {
-	background-color: purple;
+#booking_status {
+	background-image: url('../images/bg_rental_status.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }

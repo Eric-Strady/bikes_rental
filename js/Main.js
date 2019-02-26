@@ -83,7 +83,7 @@ $(function() {
 				lineThickness = 3,
 				topLeftMessage = 'Votre signature:';
 
-			$('#signature').hide();
+			$('#signature, #successMessage').hide();
 
 			const canvas = new Canvas(width, height, color, lineThickness, topLeftMessage);
 
@@ -91,7 +91,7 @@ $(function() {
 				if ($('#lastName').val() !== '' && $('#firstName').val() !== '') {
 					e.preventDefault();
 
-					$('#submitButton').hide();
+					$('#submitButton, #successMessage').hide();
 					$('#signature').fadeIn(800);
 					canvas.ctx = document.getElementById('signatureCanvas').getContext("2d");
 
@@ -129,6 +129,8 @@ $(function() {
 		}
 
 		initBooking() {
+			$('#booking_status').hide();
+
 			$('#validationButton').click(function(e) {
 				e.preventDefault();
 				let bookingData = {
@@ -138,13 +140,27 @@ $(function() {
 					firstName: $('#firstName').val()
 				}
 				$('#signature').hide();
-				$('#submitButton').show();
+				$('#submitButton, #successMessage, #booking_status').show();
 
-				const booking = new Booking(bookingData, '#form');
+				const booking = new Booking(bookingData);
 				booking.saveBooking();				
 			});
 		}
 	}
 	
 	const main = new Main();
+
+
+	// SMOOTH SCROLL
+
+	$('.anchor').click(function(e) {
+        if (this.hash !== "")
+        {
+            var hash = this.hash;
+            $('html, body').animate({scrollTop: $(hash).offset().top}, 800, function(){
+            window.location.hash = hash;
+            });
+            e.preventDefault();
+        }
+    });
 });

@@ -21,4 +21,9 @@ class Booking {
 		sessionStorage.setItem("booking", bookingString);
 		sessionStorage.setItem("stationNumber", this.stationNumber);
 	}
+
+	displayBookingSummary(bookingSummaryId) {
+		let bookingSummary = `Réservation d'un vélo situé "${this.booking.stationAddress}" au nom de ${this.firstName} ${this.lastName}.`;
+		$(bookingSummaryId).append(bookingSummary);
+	}
 }

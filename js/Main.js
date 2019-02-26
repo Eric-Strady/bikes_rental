@@ -143,7 +143,18 @@ $(function() {
 				$('#submitButton, #successMessage, #booking_status').show();
 
 				const booking = new Booking(bookingData);
-				booking.saveBooking();				
+				const timer = new Timer(20, 0, '#booking_status', '#timer span');
+
+				booking.saveBooking();
+				booking.displayBookingSummary('#bookingSummary');
+				timer.init();
+				startTimer();
+
+				function startTimer() {
+					timer.auto = setInterval(function() {
+						timer.getTimer();
+					}, 1000);
+				}
 			});
 		}
 	}

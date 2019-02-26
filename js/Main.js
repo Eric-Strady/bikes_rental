@@ -127,6 +127,23 @@ $(function() {
 				$('.signatureButtons').attr('disabled', 'true');
 			});
 		}
+
+		initBooking() {
+			$('#validationButton').click(function(e) {
+				e.preventDefault();
+				let bookingData = {
+					stationNumber: $('#stationNumber').val(),
+					stationAddress: $('#address span').text(),
+					lastName: $('#lastName').val(),
+					firstName: $('#firstName').val()
+				}
+				$('#signature').hide();
+				$('#submitButton').show();
+
+				const booking = new Booking(bookingData, '#form');
+				booking.saveBooking();				
+			});
+		}
 	}
 	
 	const main = new Main();

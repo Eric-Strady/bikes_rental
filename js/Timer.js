@@ -2,7 +2,7 @@ class Timer {
 	constructor(minutes, seconds, blockId, timerId) {
 		this.minutes = minutes;
 		this.seconds = seconds;
-		this.fullSeconds = 60;
+		this.fullSeconds = 59;
 		this.blockId = blockId;
 		this.timerId = timerId;
 		this.firstCall = false;
@@ -23,7 +23,7 @@ class Timer {
 
 	minusOneSecond() {
 		this.seconds--;
-		if (this.seconds === 0) {
+		if (this.seconds < 0) {
 			this.seconds = this.fullSeconds;
 			this.minusOneMinute();
 		}

@@ -5,6 +5,7 @@ class Map {
 		this.longitude = lng;
 		this.map;
 		this.stations;
+		this.init();
 	}
 
 	init() {

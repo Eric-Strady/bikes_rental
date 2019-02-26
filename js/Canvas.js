@@ -16,7 +16,6 @@ class Canvas {
 	}
 
 	getMousePosition(e) {
-	    
 	    return {
 	        x: e.offsetX,
 	        y: e.offsetY

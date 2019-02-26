@@ -13,7 +13,6 @@ $(function() {
 				markersBlockId = '#slider-marker';
 
 			const slider = new Slider(slides, slideId, markersBlockId);
-			slider.init()
 			slider.startSliding();
 
 			$('#slides').hover(
@@ -58,7 +57,6 @@ $(function() {
 			let dataFromJCDecaux = 'https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=3e1f17ee3d8f0b4e911b05f690af84c74891c3fc';
 
 			const map = new Map('mapid', 47.217894, -1.552875);
-			map.init();
 			getApiData(dataFromJCDecaux);
 
 			function getApiData(url) {
@@ -88,7 +86,6 @@ $(function() {
 					$('#submitButton, #successMessage').hide();
 					$('#signature').fadeIn(800);
 					canvas.ctx = document.getElementById('signatureCanvas').getContext("2d");
-
 					canvas.init();
 				}
 			});
@@ -141,7 +138,6 @@ $(function() {
 
 				booking.saveBooking();
 				booking.displayBookingSummary('#bookingSummary');
-				timer.init();
 				timer.startTimer();
 			});
 		}

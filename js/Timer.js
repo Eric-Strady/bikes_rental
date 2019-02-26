@@ -7,6 +7,7 @@ class Timer {
 		this.timerId = timerId;
 		this.firstCall = false;
 		this.auto;
+		this.init();
 	}
 
 	init() {

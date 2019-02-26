@@ -7,6 +7,7 @@ class Slider {
 		this.index = 0;
 		this.currentSlide = 0;
 		this.auto = '';
+		this.init();
 	}
 
 	init() {

@@ -6,14 +6,9 @@ class Timer {
 		this.blockId = blockId;
 		this.timerId = timerId;
 		this.firstCall = false;
-		this.auto;
-		this.init();
-	}
-
-	init() {
-		this.getTimer();
+		this.auto = '';
 		this.stopTimer();
-		this.firstCall = true;
+		this.getTimer();
 		this.startTimer();
 	}
 
@@ -38,6 +33,7 @@ class Timer {
 			this.transformTimerInString();
 		}
 		this.transformTimerInString();
+		this.firstCall = true;
 	}
 
 	startTimer() {

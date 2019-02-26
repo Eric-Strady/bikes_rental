@@ -86,13 +86,16 @@ $(function() {
 			const canvas = new Canvas(width, height, color, lineThickness, topLeftMessage);
 
 			$('#submitButton input').click(function(e) {
-				e.preventDefault();
-				$('#submitButton').hide();
-				$('#signatureCanvas, #signatureButtons').fadeIn(1000);
-				$('#signatureButtons button').attr('disabled', 'true');
-				canvas.ctx = document.getElementById('signatureCanvas').getContext("2d");
+				if ($('#lastName').val() !== '' && $('#firstName').val() !== '') {
+					e.preventDefault();
+					
+					$('#submitButton').hide();
+					$('#signatureCanvas, #signatureButtons').fadeIn(1000);
+					$('#signatureButtons button').attr('disabled', 'true');
+					canvas.ctx = document.getElementById('signatureCanvas').getContext("2d");
 
-				canvas.init();
+					canvas.init();
+				}
 			});
 
 			$('#signatureCanvas').mousedown(function(e) {

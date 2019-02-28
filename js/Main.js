@@ -53,10 +53,23 @@ $(function() {
 		}
 
 		initMap() {
-			$('#rental_form').hide();
+			$('#successMessage, #rental_form').hide();
 			let urlApi = 'https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=3e1f17ee3d8f0b4e911b05f690af84c74891c3fc';
+			let domId = {
+				helpId: '#help',
+				signatureId: '#signature',
+				formId: '#rental_form',
+				submitButtonId: '#submitButton',
+				statusId: '#status span',
+				addressId: '#address span',
+				bikeStandsId: '#bikeStands span',
+				availableBikesId: '#availableBikes span',
+				lastNameId: '#lastName',
+				firstNameId: '#firstName',
+				stationNumberId: '#stationNumber'
+			};
 
-			const map = new Map('mapid', 47.217894, -1.552875, urlApi);
+			const map = new Map('mapid', 47.217894, -1.552875, urlApi, domId);
 		}
 
 		initCanvas() {
@@ -66,15 +79,13 @@ $(function() {
 				lineThickness = 3,
 				topLeftMessage = 'Votre signature:';
 
-			$('#signature, #successMessage').hide();
-
 			const canvas = new Canvas(width, height, color, lineThickness, topLeftMessage);
 
 			$('#submitButton input').click(function(e) {
 				if ($('#lastName').val() !== '' && $('#firstName').val() !== '') {
 					e.preventDefault();
 
-					$('#submitButton, #successMessage').hide();
+					$('#submitButton').hide();
 					$('#signature').fadeIn(800);
 					canvas.ctx = document.getElementById('signatureCanvas').getContext("2d");
 					canvas.init();
@@ -121,8 +132,9 @@ $(function() {
 					lastName: $('#lastName').val(),
 					firstName: $('#firstName').val()
 				}
-				$('#signature').hide();
-				$('#submitButton, #successMessage, #booking_status').show();
+				$('#rental_form').hide();
+				$('#help, #booking_status').show();
+				$('#successMessage').show().delay(3000).fadeOut(1000);
 
 				const booking = new Booking(bookingData, '#bookingSummary');
 				const timer = new Timer(20, 0, '#booking_status', '#timer span');

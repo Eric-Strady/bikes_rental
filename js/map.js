@@ -1,11 +1,12 @@
 class Map {
-	constructor(id, lat, lng, urlApi) {
+	constructor(id, lat, lng, urlApi, domId) {
 		this.id = id;
 		this.latitude = lat;
 		this.longitude = lng;
 		this.urlApi = urlApi;
 		this.map;
 		this.stations;
+		this.domId = domId;
 		this.init();
 		this.getApiData();
 	}
@@ -33,26 +34,17 @@ class Map {
 	}
 
 	generateMarkers() {
-		this.stations.forEach(station => {
+		let self = this;
+		self.stations.forEach(station => {
 			let stationLat = station.position.lat,
-				stationLng = station.position.lng,
-				stationStatus = station.status,
-				stationNumber = station.number,
-				stationAddr = station.address,
-				stationBikeStands = station.available_bike_stands,
-				stationAvailableBikes = station.available_bikes;
+				stationLng = station.position.lng;
 
 			let marker = L.marker([stationLat, stationLng])
-				.addTo(this.map)
-				.on('click', addData);
+				.addTo(self.map)
+				.on('click', generateForm);
 
-			function addData() {
-				$('#help').hide();
-				$('#rental_form').fadeIn(1000);
-				$('#address span').text(stationAddr);
-				$('#bikeStands span').text(stationBikeStands);
-				$('#availableBikes span').text(stationAvailableBikes);
-				$('#stationNumber').attr('value', stationNumber);
+			function generateForm() {
+				new Form(station, self.domId);
 			}
 		});
 	}

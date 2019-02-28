@@ -2,7 +2,6 @@ class Booking {
 	constructor(bookingObj, bookingSummaryId) {
 		this.booking = bookingObj;
 		this.bookingSummaryId = bookingSummaryId;
-		this.stationNumber = bookingObj.stationNumber;
 		this.lastName = bookingObj.lastName;
 		this.firstName = bookingObj.firstName;
 		this.saveToLocalStorage();
@@ -18,7 +17,6 @@ class Booking {
 	saveToSessionStorage() {
 		let bookingString = JSON.stringify(this.booking);
 		sessionStorage.setItem("booking", bookingString);
-		sessionStorage.setItem("stationNumber", this.stationNumber);
 	}
 
 	displayBookingSummary() {

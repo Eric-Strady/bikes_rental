@@ -108,12 +108,16 @@
 							<div class="col-lg-12" id="help">
 								<p>Cliquez sur une station pour obtenir ses détails et réserver un vélo !</p>
 							</div>
+							<div class="alert alert-success text-center mt-5" role="alert" id="successMessage">
+								<a href="#booking_status" class="alert-link anchor">Votre réservation</a> a bien été prise en compte. Celle-ci expirera dans 20 minutes. Si vous le souhaitez, vous pouvez effectuer une nouvelle réservation mais elle effacera la précédente.
+							</div>
 							<div class="col-lg-12" id="rental_form">
 								<form action="#">
 									<fieldset>
 										<legend class="mb-3">Détails de la station:</legend>
 										<div class="row mb-3" id="stationDetails">
 											<div class="col-lg-12">
+												<p id="status">Status: <span></span></p>
 												<p id="address">Adresse: <span></span></p>
 												<p id="bikeStands">Places disponibles: <span></span></p>
 												<p id="availableBikes">Vélos disponibles: <span></span></p>
@@ -154,9 +158,6 @@
 														</div>
 													</div>
 												</div>
-												<div class="alert alert-success text-center mt-5" role="alert" id="successMessage">
-													<a href="#booking_status" class="alert-link anchor">Votre réservation</a> a bien été prise en compte. Celle-ci expirera dans 20 minutes. Si vous le souhaitez, vous pouvez effectuer une nouvelle réservation.
-												</div>
 											</div>
 										</div>
 									</fieldset>
@@ -186,6 +187,7 @@
 		<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
 		<script type="text/javascript" src="js/ajax.js"></script>
 	    <script type="text/javascript" src="js/Slider.js"></script>
+	    <script type="text/javascript" src="js/Form.js"></script>
 	    <script type="text/javascript" src="js/Map.js"></script>
 	    <script type="text/javascript" src="js/Canvas.js"></script>
 	    <script type="text/javascript" src="js/Booking.js"></script>

@@ -22,7 +22,7 @@ class Timer {
 	getSessionsStorageTimer() {
 		let storageTimer = sessionStorage.getItem("timer");
 		let timerObject = JSON.parse(storageTimer);
-		console.log(timerObject);
+		
 		if (timerObject !== null) {
 			this.stopTimerStorage(timerObject);
 		}

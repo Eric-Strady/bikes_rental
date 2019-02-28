@@ -53,13 +53,15 @@ $(function() {
 		}
 
 		initMap() {
-			$('#successMessage, #rental_form').hide();
+			$('#successMessage, #formAlert, #rental_form').hide();
 			let urlApi = 'https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=3e1f17ee3d8f0b4e911b05f690af84c74891c3fc';
 			let domId = {
+				alertId: '#formAlert',
 				helpId: '#help',
 				signatureId: '#signature',
 				formId: '#rental_form',
-				submitButtonId: '#submitButton',
+				submitId: '#submitButton',
+				submitButtonId: '#submitButton input',
 				statusId: '#status span',
 				addressId: '#address span',
 				bikeStandsId: '#bikeStands span',
@@ -134,7 +136,7 @@ $(function() {
 				}
 				$('#rental_form').hide();
 				$('#help, #booking_status').show();
-				$('#successMessage').show().delay(3000).fadeOut(1000);
+				$('#successMessage').show().delay(5000).fadeOut(1000);
 
 				const booking = new Booking(bookingData, '#bookingSummary');
 				const timer = new Timer(20, 0, '#booking_status', '#timer span');

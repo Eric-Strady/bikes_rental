@@ -22,7 +22,7 @@ class Timer {
 	getSessionsStorageTimer() {
 		let storageTimer = sessionStorage.getItem("timer");
 		let timerObject = JSON.parse(storageTimer);
-		
+
 		if (timerObject !== null) {
 			this.stopTimerStorage(timerObject);
 		}
@@ -64,6 +64,7 @@ class Timer {
 		if (this.firstCall !== false) {
 			clearInterval(this.auto);
 			$(this.blockId).hide();
+			sessionStorage.clear();
 		}
 	}
 

@@ -90,6 +90,6 @@ class Form {
 	}
 
 	displayAlertMessage(message) {
-		$(this.eltAlert).show().append(message).delay(5000).fadeOut(1000);
+		$(this.eltAlert).show().text(message).delay(5000).fadeOut(1000);
 	}
 }

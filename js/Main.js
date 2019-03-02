@@ -10,7 +10,7 @@ $(function() {
 		initSlider() {
 			let	slides = $('#slides > div'),
 				slideId = '#slide',
-				markersBlockId = '#slider-marker';
+				markersBlockId = '#sliderMarker';
 
 			const slider = new Slider(slides, slideId, markersBlockId);
 			slider.startSliding();
@@ -44,7 +44,7 @@ $(function() {
 				slider.autoSlide();
 			});
 
-			$('#slider-marker a').click(function(e) {
+			$('#sliderMarker a').click(function(e) {
 				e.preventDefault();
 				let markerId = $(this).attr('id');
 				slider.markerEvent(markerId);
@@ -53,14 +53,14 @@ $(function() {
 		}
 
 		initMap() {
-			$('#successMessage, #formAlert, #rental_form').hide();
+			$('#successMessage, #formAlert, #rentalForm').hide();
 			let urlApi = 'https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=3e1f17ee3d8f0b4e911b05f690af84c74891c3fc';
 			let domId = {
 				blockId: '#station',
 				alertId: '#formAlert',
 				helpId: '#help',
 				signatureId: '#signature',
-				formId: '#rental_form',
+				formId: '#rentalForm',
 				submitId: '#submitButton',
 				submitButtonId: '#submitButton input',
 				statusId: '#status',
@@ -137,7 +137,7 @@ $(function() {
 		}
 
 		initBooking() {
-			$('#booking_status').hide();
+			$('#bookingStatus').hide();
 
 			$('#validationButton').click(function(e) {
 				e.preventDefault();
@@ -147,13 +147,13 @@ $(function() {
 					lastName: $('#lastName').val(),
 					firstName: $('#firstName').val()
 				}
-				$('#rental_form').hide();
+				$('#rentalForm').hide();
 				$('#station').css('border', '6px double gray');
-				$('#help, #booking_status').show();
+				$('#help, #bookingStatus').show();
 				$('#successMessage').show().delay(5000).fadeOut(1000);
 
 				const booking = new Booking(bookingData, '#bookingSummary');
-				const timer = new Timer(20, 0, '#booking_status', '#timer span');
+				const timer = new Timer(20, 0, '#bookingStatus', '#timer span');
 			});
 		}
 	}

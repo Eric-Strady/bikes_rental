@@ -68,6 +68,7 @@ class Form {
 				} 
 
 				$(this.eltToDisabled).attr('disabled', true);
+				$(this.eltToCustom).css('border', '10px double red');
 
 				let message = 'Vous avez déjà une réservation en cours sur cette station !';
 				this.displayAlertMessage(message);

@@ -25,7 +25,7 @@ header .container {
 	color: #9600B2;
 }
 
-#slider-marker a {
+#sliderMarker a {
 	display: inline-block;
 	height: 15px;
 	width: 15px;
@@ -36,7 +36,7 @@ header .container {
 	color: #D600FF;
 }
 
-#slider-marker a:hover {
+#sliderMarker a:hover {
 	background-color: #D600FF!important;
 	border: 3px solid #D600FF!important;
 }

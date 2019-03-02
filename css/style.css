@@ -96,9 +96,6 @@ header .container {
 
 /* BIKES RENTAL */
 
-#bikesRental {
-}
-
 #mapid {
 	height: 550px;
 }
@@ -129,4 +126,17 @@ canvas {
 	background-repeat: no-repeat;
 	background-size: cover;
 	word-break: break-all;
+}
+
+/* MEDIA */
+
+@media all and (max-width : 992px) {
+    #backward, #forward {
+		display: none;
+	}
+
+	#bikesRental {
+		margin-right: 15px;
+		margin-left: 15px;
+	}
 }

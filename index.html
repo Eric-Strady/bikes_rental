@@ -102,67 +102,66 @@
 					</div>
 					<div class="col-lg-5">
 						<div class="row">
-							<div class="col-lg-12 text-center">
-								<h3>Formulaire de réservation</h3>
-							</div>
-							<div class="col-lg-12" id="help">
-								<p>Cliquez sur une station pour obtenir ses détails et réserver un vélo !</p>
-							</div>
-							<div class="alert alert-success text-center mt-5" role="alert" id="successMessage">
-								<a href="#booking_status" class="alert-link anchor">Votre réservation</a> a bien été prise en compte. Celle-ci expirera dans 20 minutes. Si vous le souhaitez, vous pouvez effectuer une nouvelle réservation mais elle effacera la précédente.
-							</div>
-							<div class="col-lg-12" id="rental_form">
-								<form action="#">
-									<fieldset>
-										<legend class="mb-3">Détails de la station:</legend>
-										<div class="row mb-3" id="stationDetails">
-											<div class="alert alert-danger text-center" role="alert" id="formAlert"></div>
-											<div class="col-lg-12">
-												<p id="status"></p>
-												<p id="address">Adresse: <span></span></p>
-												<p id="bikeStands">Places disponibles: <span></span></p>
-												<p id="availableBikes">Vélos disponibles: <span></span></p>
-											</div>
-										</div>
-										<div class="row" id="form">
-											<div class="col-lg-12">
-												<div class="row form-group mb-3">
-													<div class="col-lg-2">
-														<label for="lastName">Nom</label>
-													</div>
-													<div class="col-lg-10">
-														<input class="form-control form-control-sm" type="text" name="lastName" id="lastName" required/>
-													</div>
-												</div>
-												<div class="row form-group mb-3">
-													<div class="col-lg-2">
-														<label for="firstName">Prénom</label>
-													</div>
-													<div class="col-lg-10">
-														<input class="form-control form-control-sm" type="text" name="firstName" id="firstName" required/>
-														<input type="hidden" id="stationNumber" name="stationNumber"/>
-													</div>
-												</div>
-												<div class="row justify-content-center" id="submitButton">
-													<input class="btn btn-primary" type="submit" value="Réserver"/>
-												</div>
-												<div id="signature">
-													<div class="row text-center">
-														<div class="col">
-															<canvas id="signatureCanvas" width="300" height="200"></canvas>
-														</div>
-													</div>
-													<div class="row text-center">
-														<div class="col">
-															<button class="btn btn-primary signatureButtons" id="resetButton" disabled="true">Effacer</button>
-															<button class="btn btn-primary signatureButtons" id="validationButton" disabled="true">Valider ma réservation</button>
-														</div>
-													</div>
+							<div class="col-lg-12">
+								<h3 class="text-center">Détails de la station</h3>
+								<div class="row" id="station">
+									<div class="col-lg-12" id="help">
+										<p>Cliquez sur une station pour obtenir ses détails et réserver un vélo !</p>
+									</div>
+									<div class="alert alert-success text-center mt-5" role="alert" id="successMessage">
+										<a href="#booking_status" class="alert-link anchor">Votre réservation</a> a bien été prise en compte. Celle-ci expirera dans 20 minutes. Si vous le souhaitez, vous pouvez effectuer une nouvelle réservation mais elle effacera la précédente.
+									</div>
+									<div class="col-lg-12" id="rental_form">
+										<form action="#">
+											<div class="row mb-3" id="stationDetails">
+												<div class="alert alert-danger text-center" role="alert" id="formAlert"></div>
+												<div class="col-lg-12">
+													<p id="status"></p>
+													<p id="address">Adresse: <span></span></p>
+													<p id="bikeStands">Places disponibles: <span></span></p>
+													<p id="availableBikes">Vélos disponibles: <span></span></p>
 												</div>
 											</div>
-										</div>
-									</fieldset>
-								</form>
+											<div class="row" id="form">
+												<div class="col-lg-12">
+													<div class="row form-group mb-3">
+														<div class="col-lg-2">
+															<label for="lastName">Nom</label>
+														</div>
+														<div class="col-lg-10">
+															<input class="form-control form-control-sm" type="text" name="lastName" id="lastName" required/>
+														</div>
+													</div>
+													<div class="row form-group mb-3">
+														<div class="col-lg-2">
+															<label for="firstName">Prénom</label>
+														</div>
+														<div class="col-lg-10">
+															<input class="form-control form-control-sm" type="text" name="firstName" id="firstName" required/>
+															<input type="hidden" id="stationNumber" name="stationNumber"/>
+														</div>
+													</div>
+													<div class="row justify-content-center" id="submitButton">
+														<input class="btn btn-primary" type="submit" value="Réserver"/>
+													</div>
+													<div id="signature">
+														<div class="row text-center">
+															<div class="col">
+																<canvas id="signatureCanvas" width="300" height="200"></canvas>
+															</div>
+														</div>
+														<div class="row text-center">
+															<div class="col">
+																<button class="btn btn-primary signatureButtons" id="resetButton" disabled="true">Effacer</button>
+																<button class="btn btn-primary signatureButtons" id="validationButton" disabled="true">Valider ma réservation</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

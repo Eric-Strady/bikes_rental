@@ -43,15 +43,17 @@ header .container {
 
 /* BIKES RENTAL */
 
-#bikes_rental {
+.alert {
+	width: 100%;
 }
 
 #mapid {
 	height: 550px;
 }
 
-#rental_form {
-	min-height: 100%;
+#station {
+	border: 10px double gray;
+	border-radius: 10px;
 }
 
 canvas {

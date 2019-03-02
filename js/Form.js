@@ -7,6 +7,7 @@ class Form {
 		this.stationAvailableBikes = station.available_bikes;
 		this.lastName = '';
 		this.firstName = '';
+		this.eltToCustom = domId.blockId;
 		this.eltAlert = domId.alertId;
 		this.eltToDisabled = domId.submitButtonId;
 		this.eltToHide = {
@@ -44,9 +45,11 @@ class Form {
 		switch (this.stationStatus) {
 			case 'OPEN':
 				this.stationStatus = 'Station ouverte';
+				$(this.eltToCustom).css('border', '10px double green');
 				break;
 			case 'CLOSED':
 				this.stationStatus = 'Station fermée (travaux ou autres)';
+				$(this.eltToCustom).css('border', '10px double red');
 				break;
 		}
 	}
@@ -85,6 +88,7 @@ class Form {
 	checkAvailableBikes() {
 		if (this.stationAvailableBikes === 0) {
 			$(this.eltToDisabled).attr('disabled', true);
+			$(this.eltToCustom).css('border', '10px double red');
 
 			let message = 'Aucune réservation n\'est possible pour le moment sur cette station car aucun vélo n\'est disponible.';
 			this.displayAlertMessage(message);

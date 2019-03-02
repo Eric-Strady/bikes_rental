@@ -56,6 +56,7 @@ $(function() {
 			$('#successMessage, #formAlert, #rental_form').hide();
 			let urlApi = 'https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=3e1f17ee3d8f0b4e911b05f690af84c74891c3fc';
 			let domId = {
+				blockId: '#station',
 				alertId: '#formAlert',
 				helpId: '#help',
 				signatureId: '#signature',
@@ -147,6 +148,7 @@ $(function() {
 					firstName: $('#firstName').val()
 				}
 				$('#rental_form').hide();
+				$('#station').css('border', '6px double gray');
 				$('#help, #booking_status').show();
 				$('#successMessage').show().delay(5000).fadeOut(1000);
 

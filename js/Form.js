@@ -45,7 +45,7 @@ class Form {
 		switch (this.stationStatus) {
 			case 'OPEN':
 				this.stationStatus = 'Station ouverte';
-				$(this.eltToCustom).css('border', '10px double green');
+				$(this.eltToCustom).css('border', '10px double #5ECD3D');
 				break;
 			case 'CLOSED':
 				this.stationStatus = 'Station fermée (travaux ou autres)';

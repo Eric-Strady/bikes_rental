@@ -147,13 +147,20 @@ $(function() {
 					lastName: $('#lastName').val(),
 					firstName: $('#firstName').val()
 				}
-				$('#rentalForm').hide();
-				$('#station').css('border', '6px double gray');
-				$('#help, #bookingStatus').show();
-				$('#successMessage').show().delay(5000).fadeOut(1000);
+				
+				let domId = {
+					alertId: '#formAlert',
+					helpId: '#help',
+					formId: '#rentalForm',
+					bookingSummaryId: '#bookingSummary',
+					bookingStatusId: '#bookingStatus',
+					successMessageId: '#successMessage',
+					blockFormId: '#station',
+					timerId: '#timer span'
+				};
 
-				const booking = new Booking(bookingData, '#bookingSummary');
-				const timer = new Timer(20, 0, '#bookingStatus', '#timer span');
+				const booking = new Booking(bookingData, domId);
+				const timer = new Timer(20, 0, domId);
 			});
 		}
 	}

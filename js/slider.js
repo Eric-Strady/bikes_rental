@@ -90,12 +90,12 @@ class Slider {
 
 		$(markers).css({
 			'background-color': 'white',
-			'border': '3px solid #9600B2'
+			'border': '3px solid #16AFDE'
 		});
 
 		$(markerSelected).css({
-			'background-color': '#D600FF',
-			'border': '3px solid #D600FF'
+			'background-color': '#25F5E2',
+			'border': '3px solid #25F5E2'
 		});
 	}
 

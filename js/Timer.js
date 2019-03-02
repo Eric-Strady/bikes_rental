@@ -1,10 +1,10 @@
 class Timer {
-	constructor(minutes, seconds, blockId, timerId) {
+	constructor(minutes, seconds, domId) {
 		this.minutes = minutes;
 		this.seconds = seconds;
 		this.fullSeconds = 59;
-		this.blockId = blockId;
-		this.timerId = timerId;
+		this.blockId = domId.bookingStatusId;
+		this.timerId = domId.timerId;
 		this.firstCall = false;
 		this.auto = '';
 		this.getTimer();

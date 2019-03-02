@@ -62,7 +62,7 @@ $(function() {
 				formId: '#rental_form',
 				submitId: '#submitButton',
 				submitButtonId: '#submitButton input',
-				statusId: '#status span',
+				statusId: '#status',
 				addressId: '#address span',
 				bikeStandsId: '#bikeStands span',
 				availableBikesId: '#availableBikes span',
@@ -121,6 +121,18 @@ $(function() {
 				canvas.reset();
 				$('.signatureButtons').attr('disabled', 'true');
 			});
+
+			$('#signatureCanvas').on({'touchstart': function(e) {
+				let touchPosition = canvas.getTouchPosition(e);
+				canvas.setStartPosition(touchPosition.x, touchPosition.y);
+			}});
+
+			$('#signatureCanvas').on({'touchmove': function(e) {
+      			$('.signatureButtons').removeAttr('disabled');
+				let touchPosition = canvas.getTouchPosition(e);
+
+				canvas.draw(touchPosition.x, touchPosition.y);
+			}});
 		}
 
 		initBooking() {

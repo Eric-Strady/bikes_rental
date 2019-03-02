@@ -22,6 +22,15 @@ class Canvas {
 	    };
 	}
 
+	getTouchPosition(e) {
+		let touch = e.touches[0];
+		let x = touch.clientX;
+		let y = touch.clientY;
+		return {
+			x, y
+		};
+	}
+
 	setStartPosition(newX, newY) {
 		this.oldX = newX;
 		this.oldY = newY;

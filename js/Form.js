@@ -27,6 +27,7 @@ class Form {
 			stationNumber: domId.stationNumberId 
 		};
 		this.init();
+		this.checkStatus();
 		this.checkAvailableBikes();
 		this.checkSessionStorage();
 		this.checkLocalStorage();
@@ -37,6 +38,17 @@ class Form {
 		$(`${this.eltToHide.help}, ${this.eltToHide.signature}`).hide();
 		$(`${this.eltToShow.form}, ${this.eltToShow.submitButton}`).fadeIn(1000);
 		$(this.eltToDisabled).attr('disabled', false);
+	}
+
+	checkStatus() {
+		switch (this.stationStatus) {
+			case 'OPEN':
+				this.stationStatus = 'Station ouverte';
+				break;
+			case 'CLOSED':
+				this.stationStatus = 'Station fermée (travaux ou autres)';
+				break;
+		}
 	}
 
 	checkSessionStorage() {

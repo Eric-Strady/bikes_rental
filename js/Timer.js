@@ -30,7 +30,7 @@ class Timer {
 
 	minusOneMinute() {
 		this.minutes--;
-		if (this.minutes === 0) {
+		if (this.minutes === -1 ) {
 			this.stopTimer();
 		}
 	}

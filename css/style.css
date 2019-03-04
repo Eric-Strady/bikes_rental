@@ -1,18 +1,6 @@
 /* FONTS */
 
 @font-face {
-    font-family: 'airstreamregular';
-    src: url('fonts/Airstream-webfont.eot');
-    src: url('fonts/Airstream-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Airstream-webfont.woff2') format('woff2'),
-         url('fonts/Airstream-webfont.woff') format('woff'),
-         url('fonts/Airstream-webfont.ttf') format('truetype'),
-         url('fonts/Airstream-webfont.svg#airstreamregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'caviar_dreamsregular';
     src: url('fonts/CaviarDreams-webfont.eot');
     src: url('fonts/CaviarDreams-webfont.eot?#iefix') format('embedded-opentype'),
@@ -40,14 +28,20 @@
 /* GENERAL */
 
 h1 {
-	font-family: airstreamregular, "Times New Roman", Arial, sans-serif;
+	font-family: ubuntu_titlingbold, "Times New Roman", Arial, sans-serif;
+	font-size: 3rem;
+	color: white;
+}
+
+section h1 {
+	color: black;
 }
 
 h3 {
 	font-family: ubuntu_titlingbold, "Times New Roman", Arial, sans-serif;
 }
 
-p {
+p, .alert {
 	font-family: caviar_dreamsregular, "Times New Roman", Arial, sans-serif;
 }
 
@@ -72,6 +66,7 @@ header .container {
 
 #slider img {
 	height: 50vh;
+	max-width: 100%;
 }
 
 #backward span, #forward span {
@@ -133,6 +128,14 @@ canvas {
 @media all and (max-width : 992px) {
     #backward, #forward {
 		display: none;
+	}
+
+	.slides {
+		flex-wrap: wrap-reverse;
+	}
+
+	#text {
+		padding-top: 50px;
 	}
 
 	#bikesRental {

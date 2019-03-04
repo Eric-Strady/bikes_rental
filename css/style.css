@@ -37,7 +37,7 @@ section h1 {
 	color: black;
 }
 
-h3 {
+h3, label, input {
 	font-family: ubuntu_titlingbold, "Times New Roman", Arial, sans-serif;
 }
 

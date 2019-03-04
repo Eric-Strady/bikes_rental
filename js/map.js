@@ -19,7 +19,8 @@ class Map {
 
 	getApiData() {
 		let self = this;
-		ajaxGet(self.urlApi, function(response) {
+		let ajaxCall = new Ajax();
+		ajaxCall.ajaxGet(self.urlApi, function(response) {
 			self.stations = JSON.parse(response);
 			console.log(self.stations);
 			self.generateMarkers();

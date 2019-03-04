@@ -12,15 +12,18 @@ class Booking {
 		this.eltAlert = domId.alertId;
 		this.eltToComplete = domId.bookingSummaryId;
 		this.eltToCustom = domId.blockFormId;
-		this.checkLengthInput();
+		this.checkInput();
 	}
 
-	checkLengthInput() {
+	checkInput() {
 		let lastNameLength = this.lastName.length;
 		let firstNameLength = this.firstName.length;
 
 		if (lastNameLength > 50 || firstNameLength > 50) {
-			let message = 'Votre nom ou votre prénom dépasse les 50 caractères autorisés.';
+			let message = 'Votre nom ou votre prénom dépasse les 50 caractères autorisés !';
+			$(this.eltAlert).show().text(message).delay(5000).fadeOut(1000);
+		} else if (this.lastName === '' || this.firstName === '') {
+			let message = 'Votre nom et votre prénom ne doivent pas être vides !';
 			$(this.eltAlert).show().text(message).delay(5000).fadeOut(1000);
 		} else {
 			this.saveToLocalStorage();

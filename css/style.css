@@ -13,6 +13,18 @@
 }
 
 @font-face {
+    font-family: 'aaarghnormal';
+    src: url('fonts/Aaargh-webfont.eot');
+    src: url('fonts/Aaargh-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Aaargh-webfont.woff2') format('woff2'),
+         url('fonts/Aaargh-webfont.woff') format('woff'),
+         url('fonts/Aaargh-webfont.ttf') format('truetype'),
+         url('fonts/Aaargh-webfont.svg#aaarghnormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'ubuntu_titlingbold';
     src: url('fonts/UbuntuTitling-Bold-webfont.eot');
     src: url('fonts/UbuntuTitling-Bold-webfont.eot?#iefix') format('embedded-opentype'),
@@ -38,11 +50,12 @@ section h1 {
 }
 
 h3, label, input {
-	font-family: ubuntu_titlingbold, "Times New Roman", Arial, sans-serif;
+	font-family: aaarghnormal, "Times New Roman", Arial, sans-serif;
 }
 
 p, .alert {
-	font-family: caviar_dreamsregular, "Times New Roman", Arial, sans-serif;
+	font-family: ubuntu_titlingbold, "Times New Roman", Arial, sans-serif;
+	font-size: 1.1rem;
 }
 
 /* HEADER */
@@ -108,6 +121,10 @@ header .container {
 	margin-bottom: 0px;
 }
 
+#status {
+	text-decoration: underline;
+}
+
 canvas {
 	border: 2px solid black;
 }
@@ -121,6 +138,15 @@ canvas {
 	background-repeat: no-repeat;
 	background-size: cover;
 	word-break: break-all;
+}
+
+#booking p {
+	font-family: caviar_dreamsregular, "Times New Roman", Arial, sans-serif;
+}
+
+#booking span {
+	font-family: ubuntu_titlingbold, "Times New Roman", Arial, sans-serif;
+	font-size: 1.7rem;
 }
 
 /* MEDIA */
@@ -141,5 +167,11 @@ canvas {
 	#bikesRental {
 		margin-right: 15px;
 		margin-left: 15px;
+	}
+}
+
+@media all and (max-width : 576px) {
+	#bookingSummary {
+		margin-top: 0px!important;
 	}
 }

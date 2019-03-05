@@ -49,8 +49,10 @@ section h1 {
 	color: black;
 }
 
-h3, label, input {
+h3, label, input, button {
 	font-family: aaarghnormal, "Times New Roman", Arial, sans-serif;
+
+	text-shadow: 2px 2px 5px black;
 }
 
 p, .alert {
@@ -69,8 +71,13 @@ header {
 	box-shadow: 0px 20px 35px #64D017;
 }
 
-header .container {
+header .container-fluid {
 	height: 100%;
+}
+
+header h3 {
+	text-decoration: underline double;
+	font-size: 2rem;
 }
 
 #slider {
@@ -78,8 +85,9 @@ header .container {
 }
 
 #slider img {
-	height: 50vh;
+	max-height: 50vh;
 	max-width: 100%;
+	border-radius: 10px;
 }
 
 #backward span, #forward span {
@@ -106,6 +114,7 @@ header .container {
 
 #mapid {
 	height: 550px;
+	border-radius: 10px;
 }
 
 #station {
@@ -123,6 +132,10 @@ header .container {
 
 #status {
 	text-decoration: underline;
+}
+
+.stationIcon {
+	color: #007BFF;
 }
 
 canvas {
@@ -156,12 +169,8 @@ canvas {
 		display: none;
 	}
 
-	.slides {
-		flex-wrap: wrap-reverse;
-	}
-
 	#text {
-		padding-top: 50px;
+		margin-bottom: 30px;
 	}
 
 	#bikesRental {
@@ -171,6 +180,15 @@ canvas {
 }
 
 @media all and (max-width : 576px) {
+
+	h1 {
+		font-size: 2.5rem;
+	}
+
+	h3 {
+		font-size: 1.75rem;
+	}
+
 	#bookingSummary {
 		margin-top: 0px!important;
 	}

@@ -14,7 +14,7 @@
 
 	<body>
 		<header>
-			<div class="container text-center">
+			<div class="container-fluid text-center">
 				<div class="row" id="slider">
 					<div class="col-lg-12 align-self-start">
 						<div class="row pt-4">
@@ -25,66 +25,67 @@
 					</div>
 					<div class="col-lg-12 align-self-center">
 						<div class="row align-items-center">
-							<div class="col-lg-1">
+							<div class="col-lg-2">
 								<a href="#" id="backward">
 									<span class="fas fa-angle-left fa-3x"></span>
 								</a>
 							</div>
-							<div class="col-lg-10" id="slides">
-								<div class="row justify-content-around align-items-center slides" id="slide0">
-									<div class="col-lg-5" id="text">
+							<div class="col-lg-8" id="slides">
+								<div class="row justify-content-center align-items-center slides" id="slide0">
+									<div class="col-lg-6" id="text">
 										<h3>Bienvenue!</h3>
-										<p>Vous souhaitez réserver un moyen de transport écologique? Regardez ce diaporama.</p>
+										<p>Vous souhaitez réserver un moyen de transport écologique?<br/>
+										Regardez ce diaporama.</p>
 									</div>
-									<div class="col-lg-7" id="image">
+									<div class="col-lg-6" id="image">
 										<img src="images/earth.png" alt="Image diaporama">
 									</div>
 								</div>
-								<div class="row justify-content-around align-items-center slides" id="slide1">
-									<div class="col-lg-5" id="text">
+								<div class="row justify-content-center align-items-center slides" id="slide1">
+									<div class="col-lg-6" id="text">
 										<h3>Trouvez votre Bicloo</h3>
 										<p>Choisissez une station sur la carte</p>
 									</div>
-									<div class="col-lg-7" id="image">
-										<img src="images/earth.png" alt="Image diaporama">
+									<div class="col-lg-6" id="image">
+										<img src="images/map.png" alt="Image diaporama">
 									</div>
 								</div>
-								<div class="row justify-content-around align-items-center slides" id="slide2">
-									<div class="col-lg-5" id="text">
+								<div class="row justify-content-center align-items-center slides" id="slide2">
+									<div class="col-lg-6" id="text">
 										<h3>Réservez votre Bicloo</h3>
 										<p>Remplissez le formulaire et signez</p>
 									</div>
-									<div class="col-lg-7" id="image">
-										<img src="images/recycling.png" alt="Image diaporama">
+									<div class="col-lg-6" id="image">
+										<img src="images/form.png" alt="Image diaporama">
 									</div>
 								</div>
-								<div class="row justify-content-around align-items-center slides" id="slide3">
-									<div class="col-lg-5" id="text">
+								<div class="row justify-content-center align-items-center slides" id="slide3">
+									<div class="col-lg-6" id="text">
 										<h3>Profitez de votre Bicloo</h3>
 										<p>Votre réservation durera 20 minutes</p>
 									</div>
-									<div class="col-lg-7" id="image">
-										<img src="images/earth.png" alt="Image diaporama">
+									<div class="col-lg-6" id="image">
+										<img src="images/booking.png" alt="Image diaporama">
 									</div>
 								</div>
-								<div class="row justify-content-around align-items-center slides" id="slide4">
-									<div class="col-lg-5" id="text">
+								<div class="row justify-content-center align-items-center slides" id="slide4">
+									<div class="col-lg-6" id="text">
 										<h3>Votre Bicloo n'importe où!</h3>
 										<p>Réservez aussi via un autre support (tablette, smartphone, etc)</p>
 									</div>
-									<div class="col-lg-7" id="image">
+									<div class="col-lg-6" id="image">
 										<img src="images/smartphone.png" alt="Image diaporama">
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-1">
+							<div class="col-lg-2">
 								<a href="#" id="forward">
 									<span class="fas fa-angle-right fa-3x"></span>
 								</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-12 align-self-end pb-5">
+					<div class="col-lg-12 align-self-end mt-2 pb-5">
 						<div class="row align-items-center justify-content-center">
 							<div class="col-lg-12" id="sliderMarker">
 							</div>
@@ -128,9 +129,9 @@
 												<div class="alert alert-danger text-center" role="alert" id="formAlert"></div>
 												<div class="col-lg-12">
 													<p id="status" class="text-center"></p>
-													<p id="address">Adresse: <span></span></p>
-													<p id="bikeStands">Places disponibles: <span></span></p>
-													<p id="availableBikes">Vélos disponibles: <span></span></p>
+													<p id="address"><i class="fas fa-map-marker-alt mr-3 stationIcon"></i>Adresse: <span></span></p>
+													<p id="bikeStands"><i class="fas fa-parking mr-3 stationIcon"></i>Places disponibles: <span></span></p>
+													<p id="availableBikes"><i class="fas fa-bicycle mr-3 stationIcon"></i>Vélos disponibles: <span></span></p>
 												</div>
 											</div>
 											<div class="row" id="form">

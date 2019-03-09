@@ -24,8 +24,9 @@ class Canvas {
 
 	getTouchPosition(e) {
 		let touch = e.touches[0];
-		let x = touch.clientX;
-		let y = touch.clientY;
+		let rect = touch.target.getBoundingClientRect();
+		let x = touch.clientX - rect.left;
+		let y = touch.clientY - rect.top;
 		return {
 			x, y
 		};

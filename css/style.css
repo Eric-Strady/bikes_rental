@@ -195,6 +195,10 @@ canvas {
 		height: 50%;
 	}
 
+	#signatureCanvas {
+		width: 240px;
+	}
+
 	#bookingSummary {
 		margin-top: 0px!important;
 	}

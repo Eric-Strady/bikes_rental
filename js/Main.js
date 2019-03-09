@@ -126,13 +126,14 @@ $(function() {
 			$('#signatureCanvas').on({'touchstart': function(e) {
 				let touchPosition = canvas.getTouchPosition(e);
 				canvas.setStartPosition(touchPosition.x, touchPosition.y);
+				e.preventDefault();			
 			}});
 
 			$('#signatureCanvas').on({'touchmove': function(e) {
       			$('.signatureButtons').removeAttr('disabled');
 				let touchPosition = canvas.getTouchPosition(e);
-
 				canvas.draw(touchPosition.x, touchPosition.y);
+				e.preventDefault();
 			}});
 		}
 

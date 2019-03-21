@@ -1,31 +1,42 @@
 class Timer {
-	constructor(minutes, seconds, domId) {
-		this.minutes = minutes;
-		this.seconds = seconds;
+	constructor(domId) {
+		this.minutes;
+		this.seconds;
 		this.fullSeconds = 59;
 		this.blockId = domId.bookingStatusId;
 		this.timerId = domId.timerId;
-		this.firstCall = false;
+		this.firstCall;
 		this.auto = '';
-		this.getTimer();
+	}
+
+	setTimerFromSession() {
+		let data = this.getSessionStorageTimer();
+		this.minutes = data.minutes;
+		this.seconds = data.seconds;
+		this.firstCall = false;
+		this.startTimer();
+	}
+
+	setTimer(minutes, seconds) {
+		this.minutes = minutes;
+		this.seconds = seconds;
+		this.firstCall = true;
 	}
 
 	saveTimer() {
-		this.getSessionsStorageTimer();
-		this.firstCall = true;
-		this.startTimer();
 		let timer = JSON.stringify(this);
-		sessionStorage.removeItem("timer");
 		sessionStorage.setItem("timer", timer);
 	}
 
-	getSessionsStorageTimer() {
+	getSessionStorageTimer() {
 		let storageTimer = sessionStorage.getItem("timer");
 		let timerObject = JSON.parse(storageTimer);
 
 		if (timerObject !== null) {
+			sessionStorage.removeItem("timer");
 			this.stopTimerStorage(timerObject);
 		}
+		return timerObject;
 	}
 
 	minusOneMinute() {
@@ -44,12 +55,16 @@ class Timer {
 	}
 
 	getTimer() {
-		if (this.firstCall !== false) {
+		this.saveTimer();
+
+		if (this.firstCall === false) {
 			this.minusOneSecond();
-			this.transformTimerInString();
+			if (this.minutes >= 0) {
+				this.transformTimerInString();
+			}
 		} else {
+			this.firstCall = false;
 			this.transformTimerInString();
-			this.saveTimer();
 		}
 	}
 
@@ -61,8 +76,9 @@ class Timer {
 	}
 
 	stopTimer() {
-		if (this.firstCall !== false) {
+		if (this.firstCall === false) {
 			clearInterval(this.auto);
+			$(this.timerId).text('');
 			$(this.blockId).hide();
 			sessionStorage.clear();
 		}

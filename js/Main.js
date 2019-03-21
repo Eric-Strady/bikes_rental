@@ -139,29 +139,42 @@ $(function() {
 
 		initBooking() {
 			$('#bookingStatus').hide();
+				
+			let domId = {
+				alertId: '#formAlert',
+				helpId: '#help',
+				formId: '#rentalForm',
+				bookingSummaryId: '#bookingSummary',
+				bookingStatusId: '#bookingStatus',
+				successMessageId: '#successMessage',
+				blockFormId: '#station',
+				timerId: '#timer span'
+			};
+
+			const booking = new Booking(domId);
+			const timer = new Timer(domId);
+
+			let isSessionStorage = booking.checkSessionStorage();
+			if (isSessionStorage) {
+				timer.setTimerFromSession();
+			}
 
 			$('#validationButton').click(function(e) {
 				e.preventDefault();
+
 				let bookingData = {
 					stationNumber: $('#stationNumber').val(),
 					stationAddress: $('#address span').text(),
 					lastName: $('#lastName').val(),
 					firstName: $('#firstName').val()
 				}
-				
-				let domId = {
-					alertId: '#formAlert',
-					helpId: '#help',
-					formId: '#rentalForm',
-					bookingSummaryId: '#bookingSummary',
-					bookingStatusId: '#bookingStatus',
-					successMessageId: '#successMessage',
-					blockFormId: '#station',
-					timerId: '#timer span'
-				};
 
-				const booking = new Booking(bookingData, domId);
-				const timer = new Timer(20, 0, domId);
+				booking.setBookingData(bookingData);
+				booking.checkInput();
+
+				timer.getSessionStorageTimer();
+				timer.setTimer(20, 0);
+				timer.startTimer();
 			});
 		}
 	}

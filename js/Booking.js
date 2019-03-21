@@ -1,8 +1,5 @@
 class Booking {
-	constructor(bookingObj, domId) {
-		this.booking = bookingObj;
-		this.lastName = bookingObj.lastName;
-		this.firstName = bookingObj.firstName;
+	constructor(domId) {
 		this.eltToShow = {
 			help: domId.helpId,
 			bookingStatus: domId.bookingStatusId,
@@ -12,7 +9,15 @@ class Booking {
 		this.eltAlert = domId.alertId;
 		this.eltToComplete = domId.bookingSummaryId;
 		this.eltToCustom = domId.blockFormId;
-		this.checkInput();
+		this.booking = {};
+		this.lastName;
+		this.firstName;
+	}
+
+	setBookingData(bookingObj) {
+		this.booking = bookingObj;
+		this.lastName = bookingObj.lastName;
+		this.firstName = bookingObj.firstName;
 	}
 
 	checkInput() {
@@ -30,6 +35,19 @@ class Booking {
 			this.saveToSessionStorage();
 			this.displayBookingSummary();
 		}
+	}
+
+	checkSessionStorage() {
+		let bookingStorage = sessionStorage.getItem("booking");
+
+		if (bookingStorage !== null) {
+			let bookingObject = JSON.parse(bookingStorage);
+			this.booking.stationAddress = bookingObject.stationAddress;
+			this.firstName = bookingObject.firstName;
+			this.lastName = bookingObject.lastName;
+			this.displayBookingSummary();
+		}
+		return bookingStorage;
 	}
 
 	saveToLocalStorage() {

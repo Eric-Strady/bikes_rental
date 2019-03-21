@@ -174,7 +174,6 @@ $(function() {
 
 				timer.getSessionStorageTimer();
 				timer.setTimer(20, 0);
-				timer.startTimer();
 			});
 		}
 	}

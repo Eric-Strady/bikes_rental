@@ -12,15 +12,16 @@ class Timer {
 	setTimerFromSession() {
 		let data = this.getSessionStorageTimer();
 		this.minutes = data.minutes;
-		this.seconds = data.seconds;
-		this.firstCall = false;
-		this.startTimer();
+		this.seconds = data.seconds - 1;
+		this.firstCall = true;
+		this.getTimer();
 	}
 
 	setTimer(minutes, seconds) {
 		this.minutes = minutes;
 		this.seconds = seconds;
 		this.firstCall = true;
+		this.getTimer();
 	}
 
 	saveTimer() {
@@ -65,6 +66,7 @@ class Timer {
 		} else {
 			this.firstCall = false;
 			this.transformTimerInString();
+			this.startTimer();
 		}
 	}
 
